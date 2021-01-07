@@ -4,11 +4,13 @@ import awilix from 'awilix';
 export default class Application {
   constructor() {
     this.container = awilix.createContainer();
+  }
+
+  async init() {
     const opts = {
       formatName: 'camelCase',
       esModules: true
     };
-    this.container.loadModules(['src/core/**/*.js'], opts);
-    // this.container.register('testLogic', awilix.asClass(TestLogic));
+    await this.container.loadModules(['src/core/**/*.js'], opts);
   }
 }
